@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora de parejas</title>
+        <link rel="stylesheet" href="Css/style.css" />
+    </head>
+    <body>
+        <div class="form_nombres">
+            <form action="#">
+                <label for="Nombre1">Primer Nombre</label>
+                <input type="text" id="Nombre1" list="opcionesNombres1" />
+                <datalist id="opcionesNombres1"></datalist>
+
+                <label for="Nombre2">Segundo Nombre</label>
+                <input type="text" id="Nombre2" list="opcionesNombres2" />
+                <datalist id="opcionesNombres2"></datalist>
+
+                <input type="button" id="botonCalcular" value="Calcular" onclick="tasenfermo()" />
+            </form>
+        </div>
+        <div class="resultados">
+            <div class="result" id="result"></div>
+            <div class="porcentaje" id="porcentaje"></div>
+        </div>
+        <div id="particles-js"></div>
+
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+        <script src="Js/scrips.js"></script>
+    </body>
+</html>
