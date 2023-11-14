@@ -55,19 +55,29 @@ particlesJS('particles-js', {
 })
 
 // ---------------------------------------------------------------------------
-var nombres = ['Juan', 
-'María', 
-'Carlos', 
-'Ana', 
-'Luis',
-'Laura', 
-'Pedro', 
-'Isabel', 
-'José', 
-'Sofía', 
-'Karen',
-'Geovany',
-'Leslie'] //agregar mas nombres despues
+var nombres = ["YANET",
+    "ADRIEL",
+    "ANGELA",
+    "GUADALUPE",
+    "LAURA",
+    "ANDRES",
+    "LESLIE",
+    "CARLOS MARIO",
+    "LUZ ARELI",
+    "EMMANUEL",
+    "ULISES",
+    "ABIGAIL",
+    "ROLANDO",
+    "YESSICA MARLEN",
+    "SEBASTIAN",
+    "DAMIAN",
+    "JESUS ANTONIO",
+    "ELVIN",
+    "YAHIR",
+    "ALEJANDRA",
+    "GEOVANY",
+    "JUAN MARTIN",
+    "KAREN"] //agregar mas nombres despues
 var Nombre1 = document.getElementById('Nombre1')
 var Nombre2 = document.getElementById('Nombre2')
 var resultContainer = document.getElementById('result')
