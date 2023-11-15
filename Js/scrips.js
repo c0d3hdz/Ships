@@ -78,7 +78,8 @@ var nombres = ["YANET",
     "GEOVANY",
     "JUAN MARTIN",
     "KAREN",
-    "JANET"] //agregar mas nombres despues
+    "JANET",
+    "NADIE"] //agregar mas nombres despues
 var Nombre1 = document.getElementById('Nombre1')
 var Nombre2 = document.getElementById('Nombre2')
 var resultContainer = document.getElementById('result')
