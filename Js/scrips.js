@@ -83,7 +83,7 @@ var Nombre1 = document.getElementById('Nombre1')
 var Nombre2 = document.getElementById('Nombre2')
 var resultContainer = document.getElementById('result')
 var resulporcentaje = document.getElementById('porcentaje')
-
+var boton = document.getElementById('botonCalcular')
 function tasenfermo() {
     boton.disabled = true;
     var n1 = ''
