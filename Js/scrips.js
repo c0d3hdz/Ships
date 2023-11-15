@@ -77,15 +77,15 @@ var nombres = ["YANET",
     "ALEJANDRA",
     "GEOVANY",
     "JUAN MARTIN",
-    "KAREN"] //agregar mas nombres despues
+    "KAREN",
+    "JANET"] //agregar mas nombres despues
 var Nombre1 = document.getElementById('Nombre1')
 var Nombre2 = document.getElementById('Nombre2')
 var resultContainer = document.getElementById('result')
 var resulporcentaje = document.getElementById('porcentaje')
 
 function tasenfermo() {
-    alert('Estás muy muy enfermo, we')
-
+    boton.disabled = true;
     var n1 = ''
     var n2 = ''
 
@@ -99,26 +99,49 @@ function tasenfermo() {
         }
     }
 
-    if (n1 !== '' && n2 !== '') {
-        mostrarPantallaDeCarga(function () {
-        resultContainer.textContent = '💗El Ship de ' + n1 + ' y ' + n2 + ' obtuvo un resultado de:';
-        generarPorcentajeAleatorio();
-    });
-    } else if (n1 !== '') {
-        mostrarPantallaDeCarga(function (){
-            resultContainer.textContent = 'Ta solito :('
-            resulporcentaje.textContent = ''
-        })
-    } else if (n2 !== '') {
-        mostrarPantallaDeCarga(function () {
-            resultContainer.textContent = 'Ta solito :('
-            resulporcentaje.textContent = ''
-        })
-    } else {
-        mostrarPantallaDeCarga(function () {
-            resultContainer.textContent = 'No se encontraron los Nombre'
-            resulporcentaje.textContent = ''
-        })
+    switch (true) {
+        case (n1 === 'GEOVANY' && n2 === 'LESLIE') || (n2 === 'GEOVANY' && n1 === 'LESLIE'): //aqui pon los nombres solo para molestar XD
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = '💗El Ship de ' + n1 + ' y ' + n2 + ' obtuvo un resultado de:'
+                var numeroAleatorio = Math.floor(Math.random() * (100 - 60 + 1)) + 60
+                var porcentaje = numeroAleatorio + '%'
+
+                resulporcentaje.textContent = porcentaje
+            })
+            break
+        case (n1 === 'ELVIN' && n2 === 'JANET') || (n2 === 'ELVIN' && n1 === 'JANET'): //El amigo que no debe regresar con su ex
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = '(•_•) NO BRO ESO NO'
+            })
+            break
+        case (n1 === 'DAMIAN' && n2 !== '') || (n2 === 'DAMIAN' && n1 !== ''): //Aqui algun nombre que no quieras que se use XD
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = '(•_•), encerio Bro?, eso es muy enfermo'
+            })
+            break
+        case n1 !== '' && n2 !== '':
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = '💗El Ship de ' + n1 + ' y ' + n2 + ' obtuvo un resultado de:'
+                generarPorcentajeAleatorio()
+            })
+            break
+        case n1 !== '':
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = 'Ta solit@ :('
+                resulporcentaje.textContent = ''
+            })
+            break
+        case n2 !== '':
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = 'Ta solit@ :('
+                resulporcentaje.textContent = ''
+            })
+            break
+        default:
+            mostrarPantallaDeCarga(function () {
+                resultContainer.textContent = 'No se encontraron los Nombres'
+                resulporcentaje.textContent = ''
+            })
     }
 }
 
@@ -167,4 +190,5 @@ function ocultarPantallaDeCarga() {
     if (pantallaCarga) {
         pantallaCarga.parentNode.removeChild(pantallaCarga)
     }
+    boton.disabled = false
 }
