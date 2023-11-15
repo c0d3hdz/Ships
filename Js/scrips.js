@@ -117,6 +117,10 @@ function tasenfermo() {
         case (n1 === 'DAMIAN' && n2 !== '') || (n2 === 'DAMIAN' && n1 !== ''): //Aqui algun nombre que no quieras que se use XD
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = '(•_•), encerio Bro?, eso es muy enfermo'
+
+                setTimeout(function () {
+                    window.close();
+                }, 5000);
             })
             break
         case n1 !== '' && n2 !== '':
