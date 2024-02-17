@@ -55,7 +55,7 @@ particlesJS('particles-js', {
 })
 
 // ---------------------------------------------------------------------------
-var nombres = ["YANET",
+const nombres = ["YANET",
     "ADRIEL",
     "ANGELA",
     "GUADALUPE",
@@ -80,41 +80,44 @@ var nombres = ["YANET",
     "KAREN",
     "JANET",
     "NADIE"] //agregar mas nombres despues
-var Nombre1 = document.getElementById('Nombre1')
-var Nombre2 = document.getElementById('Nombre2')
-var resultContainer = document.getElementById('result')
-var resulporcentaje = document.getElementById('porcentaje')
-var boton = document.getElementById('botonCalcular')
+
+const Nombre1 = document.getElementById('Nombre1')
+const Nombre2 = document.getElementById('Nombre2')
+const resultContainer = document.getElementById('result')
+const resulporcentaje = document.getElementById('porcentaje')
+const boton = document.getElementById('botonCalcular')
+
 function tasenfermo() {
-    boton.disabled = true;
-    var n1 = ''
-    var n2 = ''
+    boton.disabled = true
+    let n1 = ''
+    let n2 = ''
 
-    for (var i = 0; i < nombres.length; i++) {
-        var nom = nombres[i]
-
+    nombres.forEach((nom) => {
         if (Nombre1.value === nom) {
             n1 = nom
+
         } else if (Nombre2.value === nom) {
             n2 = nom
         }
-    }
+    })
 
     switch (true) {
         case (n1 === 'GEOVANY' && n2 === 'LESLIE') || (n2 === 'GEOVANY' && n1 === 'LESLIE'): //aqui pon los nombres solo para molestar XD
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = '💗El Ship de ' + n1 + ' y ' + n2 + ' obtuvo un resultado de:'
-                var numeroAleatorio = Math.floor(Math.random() * (100 - 60 + 1)) + 60
-                var porcentaje = numeroAleatorio + '%'
+                const numeroAleatorio = Math.floor(Math.random() * (100 - 60 + 1)) + 60
+                const porcentaje = numeroAleatorio + '%'
 
                 resulporcentaje.textContent = porcentaje
             })
             break
+
         case (n1 === 'ELVIN' && n2 === 'JANET') || (n2 === 'ELVIN' && n1 === 'JANET'): //El amigo que no debe regresar con su ex
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = '(•_•) NO BRO ESO NO'
             })
             break
+
         case (n1 === 'DAMIAN' && n2 !== '') || (n2 === 'DAMIAN' && n1 !== ''): //Aqui algun nombre que no quieras que se use XD
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = '(•_•), encerio Bro?, eso es muy enfermo'
@@ -124,24 +127,28 @@ function tasenfermo() {
                 }, 5000);
             })
             break
+
         case n1 !== '' && n2 !== '':
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = '💗El Ship de ' + n1 + ' y ' + n2 + ' obtuvo un resultado de:'
                 generarPorcentajeAleatorio()
             })
             break
+
         case n1 !== '':
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = 'Ta solit@ :('
                 resulporcentaje.textContent = ''
             })
             break
+
         case n2 !== '':
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = 'Ta solit@ :('
                 resulporcentaje.textContent = ''
             })
             break
+
         default:
             mostrarPantallaDeCarga(function () {
                 resultContainer.textContent = 'No se encontraron los Nombres'
@@ -151,31 +158,31 @@ function tasenfermo() {
 }
 
 function generarPorcentajeAleatorio() {
-    var numeroAleatorio = Math.floor(Math.random() * 100) + 1
-    var porcentaje = numeroAleatorio + '%'
+    const numeroAleatorio = Math.floor(Math.random() * 100) + 1
+    const porcentaje = numeroAleatorio + '%'
 
     resulporcentaje.textContent = porcentaje
 }
 
-var opcionesNombres1 = document.getElementById('opcionesNombres1')
+const opcionesNombres1 = document.getElementById('opcionesNombres1')
 nombres.forEach(function (nombre) {
-    var opcion = document.createElement('option')
+    const opcion = document.createElement('option')
     opcion.value = nombre
     opcionesNombres1.appendChild(opcion)
 })
 
-var opcionesNombres2 = document.getElementById('opcionesNombres2')
+const opcionesNombres2 = document.getElementById('opcionesNombres2')
 nombres.forEach(function (nombre) {
-    var opcion = document.createElement('option')
+    const opcion = document.createElement('option')
     opcion.value = nombre
     opcionesNombres2.appendChild(opcion)
 })
 // ---------------------------------------------------------------------------------------
 function mostrarPantallaDeCarga(callback) {
-    var pantallaCarga = document.createElement('div')
+    const pantallaCarga = document.createElement('div')
     pantallaCarga.className = 'pantalla-carga'
 
-    var corazon = document.createElement('div')
+    const corazon = document.createElement('div')
     corazon.className = 'corazon'
     corazon.innerHTML = '❤️'
     pantallaCarga.appendChild(corazon)
@@ -191,9 +198,9 @@ function mostrarPantallaDeCarga(callback) {
 }
 
 function ocultarPantallaDeCarga() {
-    var pantallaCarga = document.querySelector('.pantalla-carga')
-    if (pantallaCarga) {
-        pantallaCarga.parentNode.removeChild(pantallaCarga)
-    }
+    const pantallaCarga = document.querySelector('.pantalla-carga')
+
+    pantallaCarga ? pantallaCarga.parentNode.removeChild(pantallaCarga) : null
+
     boton.disabled = false
 }
